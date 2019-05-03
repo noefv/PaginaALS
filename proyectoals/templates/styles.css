@@ -1,0 +1,74 @@
+#navi{
+    margin-bottom: 5%;
+}
+
+#tjuegos{
+    width: 75%;
+    margin-left: 12.5%;
+}
+
+#tjuegosdel{
+    width: 50%;
+    margin-left: 25%;
+}
+
+#tadd{
+    width: 40%;
+    margin-left: 30%;
+}
+
+#add{
+    float:right;
+}
+
+#titulo{
+    margin-top: 2%;
+    float:left;
+}
+
+#logo{
+    margin-left: 25%;
+}
+
+.confirmacion{
+    margin-left: 25%;
+}
+
+#btnconf{
+    margin-top: 8%;
+    margin-left: 25%;
+}
+
+.error{
+    margin-left: 25%;
+}
+
+#btnerror{
+    margin-top: 8%;
+    margin-left: 25%;
+}
+
+.addgames{
+    margin-left: 42%;
+    margin-bottom: 5%;
+}
+
+#delconfir{
+    width: 10%;
+    margin-left: 65%;
+    list-style-type:none;
+}
+
+#delno{
+    margin-left: 10%;
+}
+
+.back{
+    margin-left: 20%;
+    margin-bottom: 2%;
+}
+
+footer{
+    margin-left: 22%;
+    margin-top: 18%;
+}

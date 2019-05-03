@@ -1,0 +1,47 @@
+application: proyectoals
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /res
+  static_dir: res
+
+- url: /templates
+  static_dir: templates
+  application_readable: true
+
+- url: /manage_games
+  script: handlers.manage_games.app
+  login: required
+
+- url: /add_games
+  script: handlers.add_games.app
+  login: required
+
+- url: /delete_games
+  script: handlers.delete_games.app
+  login: required
+
+- url: /view_games
+  script: handlers.view_games.app
+  login: required
+
+- url: /edit_games
+  script: handlers.edit_games.app
+  login: required
+
+- url: /
+  script: handlers.welcome.app
+
+libraries:
+  - name: webapp2
+    version: "2.5.2"
+  - name: jinja2
+    version: latest

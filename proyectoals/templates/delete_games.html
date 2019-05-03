@@ -1,0 +1,59 @@
+{% extends "skeleton.html" %}
+{% block content %}
+<div class="back">
+ <a href="/manage_games"><button class="btn btn-outline-primary" type="submit" >Back</button></a>
+</div>
+<table class="table table-hover" id="tjuegosdel">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Code</th>
+      <th scope="col">Type</th>
+      <th scope="col">Platform</th>
+    </tr>
+  </thead>
+    <!--
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+-->
+  <tbody>
+                      <tr>
+                        <td>
+                            {{ game.name }}
+                        </td>
+                        <td>
+                            {{ game.code }}
+                            <a></a>
+                        </td>
+                        <td>
+                            {{ game.type }}
+                        </td>
+                        <td>
+                            {{ game.platform }}
+                        </td>
+
+                        </tr>
+  </tbody>
+</table>
+
+<form method="post" action="/delete_games?id={{game.key.id()}}" id="delconfir">
+    <button class="btn btn-outline-success" id="delyes" type="submit" >Yes</button>
+    <a href="/manage_games"><button class="btn btn-outline-danger" id="delno" type="submit" >No</button></a>
+</form>
+
+{% endblock %}

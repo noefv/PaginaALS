@@ -1,0 +1,82 @@
+{% extends "skeleton.html" %}
+{% block content %}
+<div class="back">
+<a href="/manage_games"><button class="btn btn-outline-primary" type="submit" >Back</button></a>
+</div>
+<form method="post" action="add_games" id="tadd">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" class="form-control" name="name" id="exampleFormControlInput1" placeholder="Darksouls 3">
+  </div>
+
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Code</label>
+    <input type="text" class="form-control" name="code" id="exampleFormControlInput1" placeholder="0000">
+  </div>
+
+<!--
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Type</label>
+    <input type="text" class="form-control" name="type" placeholder="Action">
+  </div>
+-->
+
+  <div class="form-group">
+      <label for="inputState">Type</label>
+      <select id="inputState" name="type" class="form-control">
+        <option selected>Action-adventure</option>
+        <option>Platforming</option>
+        <option>Alternate reality</option>
+        <option>Sports</option>
+        <option>Casual</option>
+        <option>Escape</option>
+        <option>Minigames</option>
+        <option>Flash</option>
+        <option>Narrative</option>
+        <option>First person shooter</option>
+        <option>Third person shooter</option>
+        <option>Role-playing video</option>
+        <option>Real-time strategy</option>
+        <option>Medieval</option>
+        <option>Multiplayer online battle arena</option>
+        <option>Adventure</option>
+
+
+      </select>
+    </div>
+
+<!--
+    <div class="form-group">
+    <label for="exampleFormControlInput1">Platform</label>
+    <input type="text" class="form-control" name="platform" id="exampleFormControlInput1" placeholder="Darksouls 3">
+  </div>
+-->
+
+    <div class="form-group">
+      <label for="inputState">Platform</label>
+      <select id="inputState" name="platform" class="form-control">
+        <option selected>PC</option>
+        <option>PS4</option>
+        <option>PS3</option>
+        <option>PS2</option>
+        <option>PS1</option>
+        <option>Xbox One</option>
+        <option>Xbox 360</option>
+        <option>Nintendo Switch</option>
+        <option>Nintendo Wii U</option>
+        <option>Nintendo Wii</option>
+        <option>Nintendo 3DS</option>
+        <option>Nintendo DS</option>
+        <option>GameBoy Advance</option>
+        <option>GameBoy</option>
+        <option>Medieval</option>
+        <option>Multiplayer online battle arena</option>
+        <option>Adventure</option>
+      </select>
+    </div>
+
+  <button class="btn btn-outline-success" type="submit" id ="add">Add</button>
+
+</form>
+
+{% endblock %}
