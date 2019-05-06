@@ -15,7 +15,7 @@ class WelcomePage(webapp2.RequestHandler):
         else:
             access_link = users.create_login_url("/manage_games")
             template_values = {
-                "user": "Iniciar Sesion",
+                "user": "Sign in",
                 "access_link": access_link
             }
 
