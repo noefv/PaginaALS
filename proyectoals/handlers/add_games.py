@@ -14,7 +14,7 @@ class GamesAdd(webapp2.RequestHandler):
             access_link = users.create_logout_url("/")
 
             template_values = {
-                "user": user.email(),
+                "user": user.nickname(),
                 "access_link": access_link
             }
 
@@ -29,13 +29,14 @@ class GamesAdd(webapp2.RequestHandler):
         access_link = users.create_logout_url("/")
 
         template_values = {
-            "user": user.email(),
+            "user": user.nickname(),
             "access_link": access_link
         }
 
         game = game_mgt.create_empty_game()
         game.code = self.request.get("code")
         game.name = self.request.get("name")
+        game.user_email = user.email()
         game.type = self.request.get("type")
         game.platform = self.request.get("platform")
 

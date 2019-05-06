@@ -10,6 +10,7 @@
       <th scope="col">Code</th>
       <th scope="col">Type</th>
       <th scope="col">Platform</th>
+        <th scope="col">Added by</th>
         <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -27,6 +28,9 @@
                         <td>
                             {{ game.platform }}
                         </td>
+                          <td>
+                            {{ game.user_email.split("@", 1)[0] }}
+                        </td>
                         <td>
                             <a href="/delete_games?id={{game.key.id()}}">
                                 <img src="/res/delete.png" width="25" height="25" class="d-inline-block align-top" alt="" title="Delete">
@@ -36,8 +40,68 @@
                             </a>
                         </td>
                         </tr>
-  </tbody>
+
+                        </tbody>
 
 </table>
+
+<table class="table table-hover" id="tcoments">
+  <tbody>
+            {% for comen in coment %}
+                      <tr>
+                        <td>
+                            <div class="input-group mb-3">
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon3">{{comen.user_email.split("@", 1)[0]}}</span>
+                                </div>
+                                <label type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"><a>{{comen.comentary}}</a>
+                            </div>
+                                {% for i in range(comen.puntuacion) %}
+                                        <label for="radio1" id="goldyes">★</label>
+                                    {% endfor %}
+                             {% if comen.user_email == user or user == admin %}
+                              <a href="/delete_coments?id={{comen.key.id()}}" id="delcomen" >
+                                    <img src="/res/delete.png" width="25" height="25" class="d-inline-block align-top"  alt="" title="Delete">
+                              </a>
+                            {% endif %}
+                          </td>
+                        </tr>
+            {% endfor %}
+  </tbody>
+
+
+
+</table>
+
+                      <div class="addcomnt">
+                          <form method="post" action="/add_coments?id={{game.key.id()}}">
+      <!--Material textarea-->
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Comment:</span>
+  </div>
+  <textarea class="form-control" name="txtarea" aria-label="With textarea" placeholder="Insert text here..."></textarea>
+</div>
+                              <form>
+  <p class="clasificacion">
+    <input id="radio1" type="radio" name="estrellas" value="5"><!--
+    --><label for="radio1" id="gold">★</label><!--
+    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+    --><label for="radio2" id="gold">★</label><!--
+    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+    --><label for="radio3" id="gold">★</label><!--
+    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+    --><label for="radio4" id="gold">★</label><!--
+    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+    --><label for="radio5" id="gold">★</label>
+      <input hidden id="radio2" type="radio" name="estrellas" value="1">
+  </p>
+
+                                  <button class="btn btn-outline-success" id="comenadd" type="submit" >Add</button>
+</form>
+                          </div>
+
+
 
 {% endblock %}

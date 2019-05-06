@@ -16,7 +16,7 @@ class GamesManager(webapp2.RequestHandler):
             all_games = list(all_games)
 
             template_values = {
-                "user": user.email(),
+                "user": user.nickname(),
                 "access_link": access_link,
                 "games": all_games
             }

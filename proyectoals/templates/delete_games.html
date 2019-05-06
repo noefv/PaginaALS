@@ -10,27 +10,10 @@
       <th scope="col">Code</th>
       <th scope="col">Type</th>
       <th scope="col">Platform</th>
+        <th scope="col">Added by</th>
     </tr>
   </thead>
-    <!--
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
--->
+
   <tbody>
                       <tr>
                         <td>
@@ -46,14 +29,20 @@
                         <td>
                             {{ game.platform }}
                         </td>
+                          <td>
+                            {{ game.user_email.split("@", 1)[0] }}
+                        </td>
 
                         </tr>
   </tbody>
 </table>
 
-<form method="post" action="/delete_games?id={{game.key.id()}}" id="delconfir">
+
+<form method="post" action="/delete_games?id={{game.key.id()}}" id="delconfir" style="display:inline; width:10%;">
     <button class="btn btn-outline-success" id="delyes" type="submit" >Yes</button>
-    <a href="/manage_games"><button class="btn btn-outline-danger" id="delno" type="submit" >No</button></a>
 </form>
+<div class="nope" style="display:inline; width:10%;">
+ <a href="/manage_games"><button class="btn btn-outline-danger" id="delyes" type="submit" >No</button></a>
+</div>
 
 {% endblock %}

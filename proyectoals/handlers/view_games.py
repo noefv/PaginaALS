@@ -3,6 +3,8 @@ from google.appengine.api import users
 from webapp2_extras import jinja2
 from model.games import Games
 import model.games as game_mgt
+from model.coments import Coments
+import model.coments as coment_mgt
 
 
 class GamesView(webapp2.RequestHandler):
@@ -16,10 +18,15 @@ class GamesView(webapp2.RequestHandler):
             id = int(self.request.get("id"))
             game = Games.get_by_id(id)
 
+            coment = Coments.query(Coments.game_id == str(id))
+            coment = list(coment)
+
             template_values = {
-                "user": user.email(),
+                "user": user.nickname(),
                 "access_link": access_link,
-                "game": game
+                "game": game,
+                "coment": coment,
+                "admin": "noe_ferreiro@hotmail.com"
             }
 
             jinja = jinja2.get_jinja2(app=self.app)

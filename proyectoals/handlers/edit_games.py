@@ -36,8 +36,9 @@ class GamesEdit(webapp2.RequestHandler):
         game = Games.get_by_id(id)
 
         template_values = {
-            "user": user.email(),
-            "access_link": access_link
+            "user": user.nickname(),
+            "access_link": access_link,
+            "msg": "You can't modify a game added by other user."
         }
 
         game.code = self.request.get("code")
@@ -45,7 +46,7 @@ class GamesEdit(webapp2.RequestHandler):
         game.type = self.request.get("type")
         game.platform = self.request.get("platform")
 
-        if game:
+        if game and user.email() == game.user_email or user.email() == "noe_ferreiro@hotmail.com":
             game_mgt.update(game)
 
             jinja = jinja2.get_jinja2(app=self.app)

@@ -1,6 +1,8 @@
 import webapp2
 from google.appengine.api import users
 from webapp2_extras import jinja2
+
+from model.coments import Coments
 from model.games import Games
 import model.games as game_mgt
 
@@ -17,7 +19,7 @@ class GamesDelete(webapp2.RequestHandler):
             game = Games.get_by_id(id)
 
             template_values = {
-                "user": user.email(),
+                "user": user.nickname(),
                 "access_link": access_link,
                 "game": game
             }
@@ -36,11 +38,18 @@ class GamesDelete(webapp2.RequestHandler):
         game = Games.get_by_id(id)
 
         template_values = {
-            "user": user.email(),
-            "access_link": access_link
+            "user": user.nickname(),
+            "access_link": access_link,
+            "msg": "You can't delete a game added by other user."
         }
 
-        if game:
+        if game and user.email() == game.user_email or user.email() == "noe_ferreiro@hotmail.com":
+            coment = Coments.query(Coments.game_id == str(id))
+            coment = list(coment)
+
+            for comen in coment:
+                comen.key.delete()
+
             game.key.delete()
 
             jinja = jinja2.get_jinja2(app=self.app)

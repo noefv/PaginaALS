@@ -6,14 +6,16 @@ from google.appengine.ext import ndb
 class Games(ndb.Model):
 
     name = ndb.TextProperty(indexed=True)
+    email = ndb.TextProperty(indexed=True)
     code = ndb.TextProperty(indexed=True)
     type = ndb.TextProperty(indexed=True)
     platform = ndb.TextProperty(indexed=True)
+    user_email = ndb.TextProperty(indexed=True)
 
 
 def create_empty_game():
     """Used when there the user is not important."""
-    return Games(name="", code="", type="", platform="")
+    return Games(name="", email="", code="", type="", platform="", user_email="")
 
 
 @ndb.transactional

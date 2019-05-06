@@ -1,5 +1,5 @@
-application: proyectoals
-version: 1
+#application: proyectoals
+#version: 1
 runtime: python27
 api_version: 1
 threadsafe: yes
@@ -35,6 +35,14 @@ handlers:
 
 - url: /edit_games
   script: handlers.edit_games.app
+  login: required
+
+- url: /add_coments
+  script: handlers.add_coments.app
+  login: required
+
+- url: /delete_coments
+  script: handlers.delete_coments.app
   login: required
 
 - url: /
